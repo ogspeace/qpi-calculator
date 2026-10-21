@@ -1,0 +1,138 @@
+:root,
+[data-bs-theme="light"] {
+  --teal: #0d9488;
+  --teal-dark: #0f766e;
+  --teal-light: #ccfbf1;
+  --teal-text: #0f766e;
+  --page-bg: #f0fdfa;
+  --navbar-bg: #0d9488;
+  --line: #99f6e4;
+  --bs-body-font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --bs-font-monospace: var(--bs-body-font-family);
+}
+
+/* Scoped to the root element so the navbar's own data-bs-theme does not affect it. */
+:root[data-bs-theme="dark"] {
+  --teal-text: #5eead4;
+  --page-bg: #0b1615;
+  --navbar-bg: #134e4a;
+  --line: #115e59;
+  --bs-body-bg: #0b1615;
+  --bs-tertiary-bg: #13201f;
+}
+
+:root[data-bs-theme="dark"] .card {
+  --bs-card-bg: #13201f;
+}
+
+body {
+  background-color: var(--page-bg);
+}
+
+.bg-teal {
+  background-color: var(--navbar-bg) !important;
+}
+
+.text-teal {
+  color: var(--teal-text) !important;
+}
+
+/* Dark mode toggle: moon in light mode, sun in dark mode. */
+.theme-toggle {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  font-size: 1.15rem;
+  line-height: 1;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background-color: rgba(255, 255, 255, 0.15);
+  opacity: 1;
+}
+
+.btn-teal {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--teal);
+  --bs-btn-border-color: var(--teal);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--teal-dark);
+  --bs-btn-hover-border-color: var(--teal-dark);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--teal-dark);
+  --bs-btn-active-border-color: var(--teal-dark);
+  --bs-btn-focus-shadow-rgb: 13, 148, 136;
+}
+
+.btn-outline-teal {
+  --bs-btn-color: var(--teal-text);
+  --bs-btn-border-color: var(--teal);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--teal);
+  --bs-btn-hover-border-color: var(--teal);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--teal-dark);
+  --bs-btn-active-border-color: var(--teal-dark);
+  --bs-btn-focus-shadow-rgb: 13, 148, 136;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 0.25rem rgba(13, 148, 136, 0.25);
+}
+
+.result-card {
+  color: #fff;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+}
+
+/* Navbar clock: HH / MM / SS stacked between tall braces. */
+.navbar-clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  height: 2.5rem;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.clock-brace {
+  font-size: 2.25rem;
+  font-weight: 300;
+  line-height: 1;
+  opacity: 0.85;
+  /* The glyph sits slightly low in its line box; nudge it to centre on the digits. */
+  transform: translateY(-0.08em);
+}
+
+.clock-digits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.625rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+}
+
+.site-footer {
+  color: var(--bs-secondary-color);
+  border-top: 1px solid var(--line);
+}
+
+details summary {
+  cursor: pointer;
+}
+
+@media (max-width: 767.98px) {
+  .subject-row {
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem !important;
+    border-bottom: 1px dashed var(--line);
+  }
+}
