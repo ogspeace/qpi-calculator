@@ -44,11 +44,14 @@ def calculate_qpi(subjects):
 
     QPI = sum(quality points * units) / total units, rounded off to four
     decimal places (Handbook Sec. 15.2-15.3). Grades worth None are skipped."""
-    subjects = [s for s in subjects if GRADE_POINTS[s["grade"]] is not None]
-    total_units = sum((s["units"] for s in subjects), Decimal("0"))
-    total_points = sum(
-        (s["units"] * GRADE_POINTS[s["grade"]] for s in subjects), Decimal("0")
-    )
+    total_units = Decimal("0")
+    total_points = Decimal("0")
+    for s in subjects:
+        points = GRADE_POINTS[s["grade"]]
+        if points is None:          # WP: not counted in QPI
+            continue
+        total_units += s["units"]
+        total_points += s["units"] * points
     if total_units == 0:
         return total_units, total_points, None
     qpi = (total_points / total_units).quantize(Decimal("0.0001"), ROUND_HALF_UP)
