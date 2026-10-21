@@ -7,8 +7,7 @@
   --page-bg: #f0fdfa;
   --navbar-bg: #0d9488;
   --line: #99f6e4;
-  --bs-body-font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --bs-font-monospace: var(--bs-body-font-family);
+
 }
 
 /* Scoped to the root element so the navbar's own data-bs-theme does not affect it. */
